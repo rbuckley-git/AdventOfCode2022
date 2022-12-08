@@ -3,8 +3,8 @@
 # https://adventofcode.com/
 # 7/12/2022
 #
+# That made me think a little.
 
-from cgitb import small
 import json
 
 
