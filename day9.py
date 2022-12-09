@@ -16,14 +16,19 @@ moves = {
 
 def move_tail(H,T):
     D = (H[0]-T[0],H[1]-T[1])
+
+    # the diagonal move
     if abs(D[0]) == 2 and abs(D[1]) == 2:
         T = (T[0]+D[0]/2,T[1]+D[1]/2)
         return T
 
+    # the snap move
     if abs(D[1]) == 2:
         T = (T[0]+D[0],T[1])
     elif abs(D[0]) == 2:
         T = (T[0],T[1]+D[1])
+    
+    # the basic follow
     if D[0] > 1:
         T = (T[0]+1,T[1])
     elif D[0] < -1:
@@ -87,8 +92,7 @@ if __name__ == '__main__':
     with open( '9.input.txt' ) as fp:
         for line in fp:
             d,n = line[:-1].split(" ")
-            n = int(n)
-            instructions.append((d,n))
+            instructions.append((d,int(n)))
 
     print("1.",part1(instructions))
     print("2.",part2(instructions))
